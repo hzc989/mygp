@@ -1,0 +1,189 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>GPA计算器</title>
+    <link rel="stylesheet" href="./gpa.css" type="text/css" />
+    <script type="text/javascript" src="gpa.js"></script>
+    </head>
+<div class="wrapper clearfix">
+    <div class="wrapper_fl">
+	<div class="wrapper_gpa">
+	    <div class="wrapper_gpa_title clearfix">GPA计算器<span class="gpa_export">导入成绩单</span></div>
+	    <div class="gpa_form">
+		<div class="gpa_list">
+		    <span class="gpa_course">课程名称</span>
+		    <span class="gpa_score">成绩<select id="gpa_score" name="score"><option value="hundred" selected="selected" name="百分制">百分制</option><option value="five" name="五分制" >五分制</option><option value="rank" name="等级制">等级制</option></select></span>
+		    <span class="gpa_credit">学分</span>
+		</div>
+		<div id="gpa_list">
+		    		    <div class="gpa_list" data-list_id=1>
+			<input type="text" id="course1" class="gpa_course" value="" placeholder="课程1"/>
+			<input type="text" id="score1" class="gpa_score" value=""/>
+			<input type="text" id="credit1" class="gpa_credit" value=""/>
+		    </div>
+		    <div class="gpa_list" data-list_id=2>
+			<input type="text" id="course2" class="gpa_course" value="" placeholder="课程2"/>
+			<input type="text" id="score2" class="gpa_score" value=""/>
+			<input type="text" id="credit2" class="gpa_credit" value=""/>
+		    </div>
+		    <div class="gpa_list" data-list_id=3>
+			<input type="text" id="course3" class="gpa_course" value="" placeholder="课程3"/>
+			<input type="text" id="score3" class="gpa_score" value=""/>
+			<input type="text" id="credit3" class="gpa_credit" value=""/>
+		    </div>
+		    <div class="gpa_list" data-list_id=4>
+			<input type="text" id="course4" class="gpa_course" value="" placeholder="课程4"/>
+			<input type="text" id="score4" class="gpa_score" value=""/>
+			<input type="text" id="credit4" class="gpa_credit" value=""/>
+		    </div>
+		    <div class="gpa_list" data-list_id=5>
+			<input type="text" id="course5" class="gpa_course" value="" placeholder="课程5"/>
+			<input type="text" id="score5" class="gpa_score" value=""/>
+			<input type="text" id="credit5" class="gpa_credit" value=""/>
+		    </div>
+		    <div class="gpa_list" data-list_id=6>
+			<input type="text" id="course6" class="gpa_course" value="" placeholder="课程6"/>
+			<input type="text" id="score6" class="gpa_score" value=""/>
+			<input type="text" id="credit6" class="gpa_credit" value=""/>
+		    </div>
+		    <div class="gpa_list" data-list_id=7>
+			<input type="text" id="course7" class="gpa_course" value="" placeholder="课程7"/>
+			<input type="text" id="score7" class="gpa_score" value=""/>
+			<input type="text" id="credit7" class="gpa_credit" value=""/>
+		    </div>
+		    <div class="gpa_list" data-list_id=8>
+			<input type="text" id="course8" class="gpa_course" value="" placeholder="课程8"/>
+			<input type="text" id="score8" class="gpa_score" value=""/>
+			<input type="text" id="credit8" class="gpa_credit" value=""/>
+		    </div>
+		</div>
+		<div><span class="gpa_add">增加一条</span></div>
+		<div class="gpa_submit"><span class="submit">开始计算</span><span class="cancel">清空结果</span></div>
+		<div class="gpa_result_title">您的GPA是：</div>
+		<div class="gpa_result_content">
+		    <div class="gpa_result_list clearfix">
+			<span>算法标准</span>
+			<span>标准算法GPA</span>
+			<span>常见算法GPA</span>
+		    </div>
+		    <div class="gpa_result_list1 clearfix">
+			<span>
+			    <select name="arithmeticType" class="arithmeticType">
+				<option value="standard_4" name="标准4.0算法">标准4.0算法</option>
+				<option value="improve1_4" name="改进4.0算法(1)">改进4.0算法(1)</option>
+				<option value="improve2_4" name="改进4.0算法(2)">改进4.0算法(2)</option>
+				<option value="Beida_4" name="北大4.0算法">北大4.0算法</option>
+				<option value="Canada_43" name="北大4.0算法">加拿大4.3算法</option>
+				<option value="USTC_43" name="中科大4.3算法">中科大4.3算法</option>
+				<option value="SJTU_43" name="上海交大4.3算法">上海交大4.3算法</option>
+			    </select>
+			</span>
+			<span id="showGPA1">0</span>
+			<span id="showGPA2">0</span>
+		    </div>
+		</div>
+		<div class="gpa_exports">
+		    <span class="exports">导出成绩单</span>
+		</div>
+	    </div>
+	</div>
+	<div class="gpa_info">
+	    <div class="gpa_info_title">GPA计算器算法说明</div>
+	    <div class="gpa_info_lists">
+		<div class="gpa_info_list clearfix">
+		    <span>标准4.0</span>
+		    <span>改进4.0(1)</span>
+		    <span>改进4.0(2)</span>
+		    <span colspan="2">北大4.0</span>
+		</div>
+		<div class="gpa_info_list1 clearfix">
+		    <span>
+			<table>
+			    <tr><td>成绩</td><td>GPA</td></tr>
+			    <tr><td>100～90</td><td>4.0</td></tr>
+			    <tr><td>89～80</td><td>3.0</td></tr>
+			    <tr><td>79～70</td><td>2.0</td></tr>
+			    <tr><td>69～60</td><td>1.0</td></tr>
+			    <tr><td>59～0</td><td>0</td></tr>
+			    <tr><th colspan="2">加拿大4.3</th></tr>
+			    <tr><td>成绩</td><td>学分</td></tr>
+			    <tr><td>100～90</td><td>4.3</td></tr>
+			    <tr><td>89～85</td><td>4.0</td></tr>
+			    <tr><td>84～80</td><td>3.7</td></tr>
+			    <tr><td>79～75</td><td>3.3</td></tr>
+			    <tr><td>74～70</td><td>3.0</td></tr>
+			    <tr><td>69～65</td><td>2.7</td></tr>
+			    <tr><td>64～60</td><td>2.3</td></tr>
+			    <tr><td>59～0</td><td>0</td></tr>
+			</table>
+		    </span>
+		    <span>
+			<table>
+			    <tr><td>成绩</td><td>GPA</td></tr>
+			    <tr><td>100～85</td><td>4.0</td></tr>
+			    <tr><td>84～70</td><td>3.0</td></tr>
+			    <tr><td>69～60</td><td>2.0</td></tr>
+			    <tr><td>59～0</td><td>0</td></tr>
+			    <tr><td></td><td></td></tr>
+			    <tr><th colspan="2">中科大4.3</th></tr>
+			    <tr><td>成绩</td><td>学分</td></tr>
+			    <tr><td>100～95</td><td>4.3</td></tr>
+			    <tr><td>94～90</td><td>4.0</td></tr>
+			    <tr><td>89～85</td><td>3.7</td></tr>
+			    <tr><td>84～82</td><td>3.3</td></tr>
+			    <tr><td>81～78</td><td>3.0</td></tr>
+			    <tr><td>77～75</td><td>2.7</td></tr>
+			    <tr><td>74～72</td><td>2.3</td></tr>
+			    <tr><td>71～68</td><td>2.0</td></tr>
+			    <tr><td>67～65</td><td>1.7</td></tr>
+			    <tr><td>64～64</td><td>1.5</td></tr>
+			    <tr><td>63～61</td><td>1.3</td></tr>
+			    <tr><td>60～60</td><td>1.0</td></tr>
+			    <tr><td>59～0</td><td>0</td></tr>
+			</table>
+		    </span>
+		    <span>
+			<table>
+			    <tr><td>成绩</td><td>GPA</td></tr>
+			    <tr><td>100～85</td><td>4.0</td></tr>
+			    <tr><td>84～75</td><td>3.0</td></tr>
+			    <tr><td>74～60</td><td>2.0</td></tr>
+			    <tr><td>59～0</td><td>0</td></tr>
+			    <tr><td></td><td></td></tr>
+			    <tr><th colspan="2">上海交大4.3</th></tr>
+			    <tr><td>成绩</td><td>学分</td></tr>
+			    <tr><td>100～95</td><td>4.3</td></tr>
+			    <tr><td>94～90</td><td>4.0</td></tr>
+			    <tr><td>89～85</td><td>3.7</td></tr>
+			    <tr><td>84～80</td><td>3.3</td></tr>
+			    <tr><td>79～75</td><td>3.0</td></tr>
+			    <tr><td>74～70</td><td>2.7</td></tr>
+			    <tr><td>69～67</td><td>2.3</td></tr>
+			    <tr><td>66～65</td><td>2.0</td></tr>
+			    <tr><td>64～62</td><td>1.7</td></tr>
+			    <tr><td>61～60</td><td>1.0</td></tr>
+			    <tr><td>59～0</td><td>0</td></tr>
+			</table>
+		    </span>
+		    <span>
+			<table>
+			    <tr><td>成绩</td><td>GPA</td></tr>
+			    <tr><td>100～90</td><td>4.0</td></tr>
+			    <tr><td>89～85</td><td>3.7</td></tr>
+			    <tr><td>84～82</td><td>3.3</td></tr>
+			    <tr><td>81～78</td><td>3.0</td></tr>
+			    <tr><td>77～75</td><td>2.7</td></tr>
+			    <tr><td>74～72</td><td>2.3</td></tr>
+			    <tr><td>71～68</td><td>2.0</td></tr>
+			    <tr><td>67～64</td><td>1.5</td></tr>
+			    <tr><td>63～60</td><td>1.0</td></tr>
+			    <tr><td>59～0</td><td>0</td></tr>
+			</table>
+		    </span>
+		</div>
+	    </div>
+	</div>
+    </div>
+</html>
+
+
