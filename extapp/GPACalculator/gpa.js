@@ -38,8 +38,8 @@ jQuery.extend({createUploadIframe: function(id, uri)
         return form;
     },ajaxFileUpload: function(s) {
         s = jQuery.extend({}, jQuery.ajaxSettings, s);
-        var id = new Date().getTime()
-        var form = jQuery.createUploadForm(id, s.fileElementId, (typeof (s.data) == 'undefined' ? false : s.data));
+        var id = new Date().getTime();
+        var form = jQuery.createUploadForm(id, s.fileElementId, (typeof (s.data) === 'undefined' ? false : s.data));
         var io = jQuery.createUploadIframe(id, s.secureuri);
         var frameId = 'jUploadFrame' + id;
         var formId = 'jUploadForm' + id;
@@ -48,7 +48,7 @@ jQuery.extend({createUploadIframe: function(id, uri)
             jQuery.event.trigger("ajaxStart");
         }
         var requestDone = false;
-        var xml = {}
+        var xml = {};
         if (s.global)
             jQuery.event.trigger("ajaxSend", [xml, s]);
         var uploadCallback = function(isTimeout) 
@@ -69,13 +69,13 @@ jQuery.extend({createUploadIframe: function(id, uri)
             {
                 jQuery.handleError(s, xml, null, e);
             }
-            if (xml || isTimeout == "timeout") 
+            if (xml || isTimeout === "timeout") 
             {
                 requestDone = true;
                 var status;
                 try {
-                    status = isTimeout != "timeout" ? "success" : "error";
-                    if (status != "error") 
+                    status = isTimeout !== "timeout" ? "success" : "error";
+                    if (status !== "error") 
                     {
                         var data = jQuery.uploadHttpData(xml, s.dataType);
                         if (s.success)
@@ -95,7 +95,7 @@ jQuery.extend({createUploadIframe: function(id, uri)
                     jQuery.event.trigger("ajaxStop");
                 if (s.complete)
                     s.complete(xml, status);
-                jQuery(io).unbind()
+                jQuery(io).unbind();
                 setTimeout(function() 
                 {
                     try 
@@ -106,10 +106,10 @@ jQuery.extend({createUploadIframe: function(id, uri)
                     {
                         jQuery.handleError(s, xml, null, e);
                     }
-                }, 100)
-                xml = null
+                }, 100);
+                xml = null;
             }
-        }
+        };
         if (s.timeout > 0) 
         {
             setTimeout(function() {
@@ -142,14 +142,14 @@ jQuery.extend({createUploadIframe: function(id, uri)
     },uploadHttpData: function(r, type) {
         var data = !type;
         data = type === "xml" || data ? r.responseXML : r.responseText;
-        if (type == "script")
+        if (type === "script")
             jQuery.globalEval(data);
-        if (type == "json")
+        if (type === "json")
             eval("data = " + data);
-        if (type == "html")
+        if (type === "html")
             jQuery("<div>").html(data).evalScripts();
         return data;
-    }})
+    }});
 
 $(document).ready(function() {
 //增加一列課程
@@ -197,7 +197,7 @@ $(document).ready(function() {
         });
         return arr;
     };
-    $('.gpa_score,.gpa_credit,.gpa_credit').blur(function() {
+    $('.gpa_score,.gpa_credit,.gpa_course').blur(function() {
         validate($(this).val(), $(this));
     });
 	//检查学分、成绩格式函數
@@ -210,7 +210,7 @@ $(document).ready(function() {
         } else if (target.hasClass('gpa_credit')) {
             var credit = $.trim(target.val());
             var reg2 = /[\d]$/g;
-            if (!reg.test(credit) && credit) {
+            if (!reg2.test(credit) && credit) {
                 $.popup.show({message: '学分格式错误',timeout: 2000,type: "warning"});
             }
             return;

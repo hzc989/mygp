@@ -484,7 +484,7 @@ and open the template in the editor.
     height: 60px;
     padding: 10px 0;
     width: 130px;
-    background: url(/apps/gpa/image/gpa.png) 0px 20px no-repeat;
+    background: url(img/gpa.png) 0px 20px no-repeat;
     float: left
 }
 
@@ -527,7 +527,7 @@ and open the template in the editor.
     display: inline-block;
     width: 10px;
     height: 10px;
-    background: url('/apps/gpa/image/gpa.png') 0px -80px no-repeat;
+    background: url('img/gpa.png') 0px -80px no-repeat;
     position: absolute;
     left: 30px;
     top: 32px
@@ -566,164 +566,6 @@ and open the template in the editor.
     height: 24px;
     line-height: 24px;
     vertical-align: middle
-}
-
-.side_bar {
-    width: 150px;
-    position: fixed;
-    top: 100px;
-    left: 50%;
-    margin-left: 490px;
-    border: 1px solid #ddd;
-    background-color: #fff;
-    z-index: 100;
-    font-size: 12px;
-    color: #666
-}
-
-.side_bar_h {
-    text-align: center;
-    background-color: #efefef;
-    font-weight: bold;
-    font-size: 16px;
-    font-family: 'Microsoft Yahei';
-    line-height: 32px;
-    color: #333
-}
-
-.side_bar_expert {
-    cursor: pointer;
-    background: url(/uc/image/side_bar_bg.gif) repeat-x;
-    height: 60px;
-    border-bottom: 1px solid #ddd
-}
-
-.side_bar_pic {
-    float: left;
-    margin-top: 7px;
-    margin-right: 4px;
-    width: 46px;
-    height: 46px;
-    background: url(/uc/image/side_bar.png) 0 0 no-repeat
-}
-
-.side_bar_name {
-    float: left;
-    font-size: 12px;
-    font-family: 'Microsoft Yahei';
-    padding-top: 14px
-}
-
-.side_bar_position {
-    color: #aaa
-}
-
-.side_bar_status {
-    float: left;
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    margin: 22px 2px 0 7px;
-    background: url(/uc/image/side_bar.png) 0 -360px no-repeat
-}
-
-.side_bar_status.status_1 {
-    background-position: 0px -360px
-}
-
-.side_bar_status.status_2 {
-    background-position: 0px -240px
-}
-
-.side_bar_status.status_3 {
-    background-position: 0px -300px
-}
-
-.side_bar a {
-    color: #666;
-    text-decoration: none
-}
-
-.side_bar a:hover {
-    text-decoration: none
-}
-
-.side_bar_part_left {
-    float: left;
-    width: 75px
-}
-
-.side_bar_part_right {
-    float: left;
-    width: 74px;
-    border-left: 1px solid #ddd
-}
-
-a.side_bar_weibo {
-    display: inline-block;
-    background: url(/uc/image/side_bar.png) 18px -535px no-repeat;
-    width: 100%;
-    padding-top: 36px;
-    text-align: center;
-    line-height: 18px;
-    text-decoration: none
-}
-
-.side_bar_qq {
-    display: inline-block;
-    background: url(/uc/image/side_bar.png) 18px -418px no-repeat;
-    width: 100%;
-    padding-top: 36px;
-    text-align: center;
-    line-height: 18px
-}
-
-.side_bar_weixin_s {
-    background: url(/uc/image/side_bar.png) 18px -480px no-repeat;
-    width: 100%;
-    padding-top: 36px;
-    text-align: center;
-    line-height: 18px
-}
-
-.side_bar_weixin_s span {
-    background: url(/uc/image/side_bar.png) 0 -596px no-repeat;
-    padding-left: 12px;
-    line-height: 18px
-}
-
-#side_bar_weixin {
-    border-top: 1px solid #ddd
-}
-
-.side_bar_weixin {
-    background: url(/uc/image/side_bar.png) -19px -663px no-repeat;
-    height: 120px;
-    width: 120px;
-    margin: 5px auto 10px
-}
-
-.side_bar_weixin_toefl {
-    background-position: -19px -1110px
-}
-
-.side_bar_weixin_mba {
-    background-position: -19px -910px
-}
-
-.side_bar_weixin_l_arrow {
-    margin: 0 auto;
-    width: 7px;
-    height: 10px;
-    background: url(/uc/image/side_bar.png) 0 -600px no-repeat
-}
-
-.side_bar_weixin_l {
-    border-top: 1px solid #ddd;
-    background: url(/uc/image/side_bar.png) 20px -475px no-repeat;
-    padding: 5px 5px 5px 75px;
-    line-height: 18px;
-    cursor: pointer
 }
 
 .footer {
@@ -898,7 +740,7 @@ body {
     font-weight: normal;
     color: #3eb2cb;
     cursor: pointer;
-    background: url(/apps/gpa/image/gpa.png) 0px -98px no-repeat;
+    background: url(img/gpa.png) 0px -98px no-repeat;
     padding-left: 15px
 }
 
@@ -950,7 +792,7 @@ body {
     font-weight: normal;
     color: #3eb2cb;
     cursor: pointer;
-    background: url(/apps/gpa/image/gpa.png) 15px -147px no-repeat;
+    background: url(img/gpa.png) 15px -147px no-repeat;
     padding-left: 35px;
     line-height: 20px;
     display: inline-block
@@ -1220,7 +1062,7 @@ body {
 }
 
 .gpa_mask .gpa_mask_title {
-    background: url(/apps/gpa/image/gpa.png) 0 -371px repeat-x;
+    background: url(img/gpa.png) 0 -371px repeat-x;
     line-height: 34px;
     padding: 0 15px;
     font-weight: bold;
@@ -1229,7 +1071,7 @@ body {
 }
 
 .gpa_mask .gpa_mask_close {
-    background: url(/apps/gpa/image/gpa.png) 0 -235px no-repeat;
+    background: url(img/gpa.png) 0 -235px no-repeat;
     width: 20px;
     height: 30px;
     display: inline-block;
@@ -1266,7 +1108,7 @@ body {
     width: 25px;
     height: 30px;
     display: inline-block;
-    background: url(/apps/gpa/image/gpa.png) 0px -310px no-repeat;
+    background: url(img/gpa.png) 0px -310px no-repeat;
     position: absolute;
     top: -10px;
     left: 285px
