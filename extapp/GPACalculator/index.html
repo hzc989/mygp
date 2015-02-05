@@ -4,10 +4,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>GPA计算器</title>
     <link rel="stylesheet" href="gpa.css" type="text/css" />
-    <!-- JQuery Baidu CDN库 -->
+    <!-- JQuery2.0 Baidu CDN库 -->
     <script type="text/javascript" src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-    <script type="text/javascript" src="gpa.js"></script>
+    <!-- 带参数的异步无刷新上传文件的JQuery插件 -->
+    <script type="text/javascript" src="ajaxfileupload.js"></script>
+        <!-- 用于实现错误提示弹框的jQuery -->
     <script type="text/javascript" src="popup.js"></script>
+    <!-- 用于实现计算器主要功能的jQuery -->
+    <script type="text/javascript" src="gpa.js"></script>
     </head>
 <body>    
 <div class="wrapper clearfix">
@@ -189,15 +193,22 @@
 	    </div>
 	</div>
     </div>
-<!--    <table class="popup" style="left: 0px; top: 242px; opacity: 0; display: none;">
-        <tbody>
-            <tr><td style="width:60px;text-align:right;vertical-align:middle;padding:10px">
-                    <img src="/uc/jui/image/warning.gif">
-                </td>
-                <td class="popup-inner"></td>
-            </tr>
-        </tbody>
-    </table>-->
+    <!-- 成绩文件上传面板div -->
+    <div class="gpa_mask" style="display: none;">
+	<div class="gpa_mask_content">
+	    <div class="gpa_mask_title">导入成绩单<span class="gpa_mask_close" onclick="$('.gpa_mask').hide()"></span></div>
+	    <div class="gpa_mask_file">
+		<input type="file" id="fileToUpload" name="fileToUpload" class="gpa_mask_select">
+		<span class="gpa_arrows"></span>
+		<span class="gpa_mask_submit">上传文件</span>
+	    </div>
+	    <div class="gpa_export_message">
+		导入的excel格式：<br>
+		1、本计算器只支持Excel格式文件的导入。<br>
+		2、第一列填课程名称，第二列填成绩，第三列填学分<br>
+	    </div>
+	</div>
+    </div>
 </body>
 </html>
 
