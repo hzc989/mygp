@@ -24,29 +24,36 @@ $currentSheet = $PHPExcel->getSheet(0);
 $allColumn = $currentSheet->getHighestColumn(); 
 /**取得一共有多少行*/ 
 $allRow = $currentSheet->getHighestRow(); 
+/**新建一个空数组**/
+$a=array();
 /**从第二行开始输出，因为excel表中第一行为列名*/ 
 for($currentRow = 2;$currentRow <= $allRow;$currentRow++){ 
 /**从第A列开始读取*/ 
-for($currentColumn= 'A';$currentColumn<= $allColumn; $currentColumn++){ 
-$val = $currentSheet->getCellByColumnAndRow(ord($currentColumn) - 65,$currentRow)->getValue();/**ord()将字符转为十进制数*/ 
-if($currentColumn == 'A') 
-{ 
-echo GetData($val)."\t"; 
-}else{ 
-//echo $val; 
-/**如果输出汉字有乱码，则需将输出内容用iconv函数进行编码转换，如下将gb2312编码转为utf-8编码输出*/ 
-echo iconv('utf-8','gb2312', $val)."\t"; 
-} 
-} 
-echo "</br>"; 
-} 
-echo "\n"; 
+    $b=array('name'=>'','score'=>'','credit'=>'');
+    for($currentColumn= 'A';$currentColumn<= $allColumn; $currentColumn++){ 
+        $val=$currentSheet->getCellByColumnAndRow(ord($currentColumn) - 65,$currentRow)->getValue();/**获取该格的数据，其中ord()将字符转为十进制数*/ 
+        if ($currentColumn === 'A') {
+                iconv('utf-8','gbk//IGNORE', $val);//对汉字转码成utf-8
+                $b['name'] = $val;
+            }
+        if ($currentColumn === 'B') {
+                $b['score'] = $val;
+            }
+        if($currentColumn==='C'){
+            $b['credit']=$val;
+            }           
+    }
+    array_push($a,$b); 
 }
+return $a;
 
+}
 
 if($ok === FALSE){
     echo json_encode('{msg:上传失败}');
-  }else{   
+  }else{
+  $path=$upFilePath .$_FILES['fileToUpload']['name'];    
+  $arr=readxls($path);    
   echo "{msg:" . json_encode($arr) . "}";
   }
 ?>
