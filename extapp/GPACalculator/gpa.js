@@ -1,24 +1,22 @@
 $(document).ready(function() {
 //增加一列課程
     $('.gpa_add').bind('click', function() {
-        var i = parseInt($('#gpa_list div:last-child').data('list_id')) + 1;
-        if (i > 20) {
+        var index = parseInt($('#gpa_list div:nth-last-child(2)').data('list_id')) + 1;
+        var txtnum = $('#txtNum').val();
+        if (index > 20) {
             $.popup.show({message: '最多只能输入20门课程',timeout: 2000,type: "warning"});
             return;
+        }  
+      for(var i = 0 ; i < txtnum; i++){
+        var item = $('<div class="gpa_list" data-list_id='
+                  + index + '><input type="text" id="course' 
+                  + index + '" class="gpa_course" value="" placeholder="课程'
+                  + index + '"/><input type="text" style="margin-left: 25px;" id="score'
+                  + index + '" class="gpa_score" value=""/><input type="text" style="margin-left: 23px;" id="credit'
+                  + index + '" class="gpa_credit" value=""/></div>');
+	$('#gpa_list div:last-child').before(item);
+        index++;
         }
-        var html = [];
-        html.push('<div class="gpa_list" data-list_id=');
-        html.push(i);
-        html.push('><input type="text" id="course');
-        html.push(i);
-        html.push('" class="gpa_course" value="" placeholder="课程');
-        html.push(i);
-        html.push('"/><input type="text" style="margin-left: 25px;" id="score');
-        html.push(i);
-        html.push('" class="gpa_score" value=""/><input type="text" style="margin-left: 23px;" id="credit');
-        html.push(i);
-        html.push('" class="gpa_credit" value=""/></div>');
-        $('#gpa_list').append(html.join(''));
     });
 	//导出成绩单
     $('.gpa_export').bind('click', function() {
