@@ -7,78 +7,10 @@ and open the template in the editor.
     Created on : 2015-2-3, 18:59:21
     Author     : gzhuangzicheng
 */
-.gpa_navigator {
-    background-color: #fff
-}
-
-.gpa_navigator .jn_wrapper {
-    width: 960px;
-    margin: 0px auto
-}
-
-.gpa_navigator .jn_logo {
-    display: inline-block;
-    height: 60px;
-    padding: 10px 0;
-    width: 130px;
-    background: url(img/gpa.png) 0px 20px no-repeat;
-    float: left
-}
-
-.gpa_navigator .jn_title {
-    font-size: 24px;
-    line-height: 80px;
-    margin-left: 15px;
-    display: inline-block;
-    float: left;
-    font-family: 'Microsoft YaHei';
-    color: #333;
-    text-decoration: none
-}
-
-.gpa_navigator .jn_app {
-    border: 1px #e4e4e4 solid;
-    border-radius: 5px;
-    float: right;
-    width: 493px;
-    height: 68px;
-    margin: 15px 0px;
-    background-color: #f7f7f7
-}
-
-.gpa_navigator .jn_app .jn_app_recommend {
-    width: 20px;
-    background-color: #e35d5e;
-    color: #fff;
-    display: inline-block;
-    padding-left: 10px;
-    font-size: 12px;
-    height: 65px;
-    padding-top: 3px;
-    border-radius: 5px 0 0 5px;
-    position: relative;
-    float: left
-}
-
-.gpa_navigator .jn_app .jn_app_recommend_arrows {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background: url('img/gpa.png') 0px -80px no-repeat;
-    position: absolute;
-    left: 30px;
-    top: 32px
-}
-
-.gpa_navigator .jn_app a {
-    padding: 0 5px;
-    text-decoration: none;
-    font-size: 12px;
-    line-height: 20px;
-    display: inline-block;
-    color: #666;
-    border-right: 1px #e4e4e4 solid;
-    margin-top: 10px
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both
 }
 
 .popup {
@@ -113,18 +45,8 @@ body {
 }
 
 .wrapper {
-    width: 960px;
+    width: 1320px;
     margin: 0 auto
-}
-
-.wrapper_fl {
-    float: left;
-    width: 660px
-}
-
-.wrapper_fr {
-    float: right;
-    width: 280px
 }
 
 .wrapper_top {
@@ -145,6 +67,7 @@ body {
 }
 
 .wrapper_gpa {
+    float: left;
     border: 1px #ddd solid;
     width: 658px;
     background-color: #fff;
@@ -332,6 +255,7 @@ body {
 }
 
 .gpa_info {
+    float:right;
     border: 1px #ddd solid;
     width: 658px;
     background-color: #fff;
@@ -346,18 +270,18 @@ body {
     border-bottom: 1px #ddd solid
 }
 
-.gpa_info .gpa_info_lists {
+.gpa_info .gpa_info_hundred {
     line-height: 25px
 }
 
-.gpa_info .gpa_info_lists .gpa_info_list {
+.gpa_info .gpa_info_hundred .gpa_info_list {
     background-color: #f7f7f7;
     margin: 0px 15px;
     font-size: 12px;
     margin-top: 15px
 }
 
-.gpa_info .gpa_info_lists .gpa_info_list span {
+.gpa_info .gpa_info_hundred .gpa_info_list span {
     width: 156px;
     float: left;
     display: inline-block;
@@ -366,105 +290,39 @@ body {
     border-right: 1px #ddd solid
 }
 
-.gpa_info .gpa_info_lists .gpa_info_list span:last-child {
+.gpa_info .gpa_info_hundred .gpa_info_list span:last-child {
     border-right: 0px
 }
 
-.gpa_info .gpa_info_lists .gpa_info_list1 {
+.gpa_info .gpa_info_hundred .gpa_info_list1 {
     padding: 0 15px;
     font-size: 12px
 }
 
-.gpa_info .gpa_info_lists .gpa_info_list1 span {
+.gpa_info .gpa_info_hundred .gpa_info_list1 span {
     width: 156px;
     float: left;
     display: inline-block;
     text-align: center;
     border-right: 1px #ddd solid;
-    height: 550px
+    height: 601px;
 }
 
-.gpa_info .gpa_info_lists .gpa_info_list1 span:last-child {
+.gpa_info .gpa_info_hundred .gpa_info_list1 span:last-child {
     border: 0px
 }
 
-.gpa_info .gpa_info_lists .gpa_info_list1 span table {
+.gpa_info .gpa_info_hundred .gpa_info_list1 span table {
     width: 156px
 }
 
-.gpa_info .gpa_info_lists .gpa_info_list1 span table tr {
+.gpa_info .gpa_info_hundred .gpa_info_list1 span table tr {
     height: 25px
 }
 
-.gpa_info .gpa_info_lists .gpa_info_list1 span table th {
+.gpa_info .gpa_info_hundred .gpa_info_list1 span table th {
     background-color: #f7f7f7;
     text-align: center
-}
-
-.about_gpa_bbs {
-    border: 1px #ddd solid;
-    background-color: #fff
-}
-
-.about_gpa_bbs .about_gpa_bbs_title {
-    padding: 0px 15px;
-    font-weight: bold;
-    line-height: 38px;
-    border-bottom: 1px #ddd solid
-}
-
-.about_gpa_bbs ul {
-    max-width: 258px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap
-}
-
-.about_gpa_bbs li {
-    list-style-type: disc;
-    margin: 0 10px 0 30px;
-    font-size: 12px
-}
-
-.about_gpa_bbs li a {
-    color: #333;
-    text-decoration: none;
-    line-height: 25px
-}
-
-.about_gpa_bbs li a:hover {
-    text-decoration: underline
-}
-
-.gpa_college {
-    margin-top: 15px;
-    border: 1px #ddd solid;
-    background-color: #fff
-}
-
-.gpa_college .gpa_college_title {
-    padding: 0px 15px;
-    font-weight: bold;
-    line-height: 38px;
-    border-bottom: 1px #ddd solid
-}
-
-.gpa_college .gpa_college_lists {
-    padding: 0 15px
-}
-
-.gpa_college .gpa_college_lists a {
-    color: #333;
-    max-width: 220px;
-    display: inline-block;
-    line-height: 25px;
-    text-decoration: none;
-    font-size: 12px;
-    min-width: 130px
-}
-
-.gpa_college .gpa_college_lists a:hover {
-    text-decoration: underline
 }
 
 .gpa_mask {
