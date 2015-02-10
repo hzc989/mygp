@@ -3,20 +3,24 @@ $(document).ready(function() {
     $('.gpa_add').bind('click', function() {
         var index = parseInt($('#gpa_list div:nth-last-child(2)').data('list_id')) + 1;
         var txtnum = $('#txtNum').val();
-        if (index > 20) {
-            $.popup.show({message: '最多只能输入20门课程',timeout: 2000,type: "warning"});
+        if (index > 100) {
+            $.popup.show({message: '最多只能输入100门课程',timeout: 2000,type: "warning"});
             return;
         }  
-      for(var i = 0 ; i < txtnum; i++){
-        var item = $('<div class="gpa_list" data-list_id='
+        for(var i = 0 ; i < txtnum; i++){
+            var item = $('<div class="gpa_list" data-list_id='
                   + index + '><input type="text" id="course' 
                   + index + '" class="gpa_course" value="" placeholder="课程'
                   + index + '"/><input type="text" style="margin-left: 25px;" id="score'
                   + index + '" class="gpa_score" value=""/><input type="text" style="margin-left: 23px;" id="credit'
                   + index + '" class="gpa_credit" value=""/></div>');
-	$('#gpa_list div:last-child').before(item);
-        index++;
-        }
+            $('#gpa_list div:last-child').before(item);
+            index++;
+            if (index > 100) {
+                $.popup.show({message: '最多只能输入100门课程',timeout: 2000,type: "warning"});
+                break;
+            } 
+        } 
     });
 	//导出成绩单
     $('.gpa_export').bind('click', function() {
@@ -177,8 +181,20 @@ $(document).ready(function() {
         var data_len = $(data).size();
         var diff = parseInt(data_len - cur_len);
         if (diff > 0) {
+            var index = parseInt($('#gpa_list div:nth-last-child(2)').data('list_id')) + 1;
             for (var i = 0; i < diff; i++) {
-                $('.gpa_add').trigger('click');
+                var item = $('<div class="gpa_list" data-list_id='
+                  + index + '><input type="text" id="course' 
+                  + index + '" class="gpa_course" value="" placeholder="课程'
+                  + index + '"/><input type="text" style="margin-left: 25px;" id="score'
+                  + index + '" class="gpa_score" value=""/><input type="text" style="margin-left: 23px;" id="credit'
+                  + index + '" class="gpa_credit" value=""/></div>');
+                $('#gpa_list div:last-child').before(item);
+                index++;
+                if (index > 100) {
+                    $.popup.show({message: '最多只能输入100门课程',timeout: 2000,type: "warning"});
+                    break;
+                }
             }
         }
         $(data).each(function(i) {
@@ -234,11 +250,23 @@ $(document).ready(function() {
             $.popup.show({message: '你还没有输入任何成绩哦~！',timeout: 2000,type: "warning"});
         }
     });
+    //切换右侧简介栏方法-----NEW
+    var changeIntro = function (){
+        var score_type = $('#gpa_score').val();
+        var index = $('.gpa_info').children().index($('.gpa_info_' + score_type));
+        $('.intro_item').eq(index).show().siblings().hide();
+    };
+    //检测下拉菜单调用切换右侧简介栏方法----NEW
+    $('#gpa_score').change(function () {
+        changeIntro();
+    });
 });
+
+//计算器核心方法
 function getnum(f, c) {
     var t = Math.pow(10, c);
     return Math.round(f * t) / t;
-}
+};
 
 
 
