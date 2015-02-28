@@ -71,7 +71,8 @@ body {
     border: 1px #ddd solid;
     width: 658px;
     background-color: #fff;
-    margin-bottom: 15px
+    margin-bottom: 15px;
+    min-height: 779px;
 }
 
 .wrapper_gpa_title {
@@ -259,7 +260,8 @@ body {
     border: 1px #ddd solid;
     width: 658px;
     background-color: #fff;
-    margin-bottom: 15px
+    margin-bottom: 15px;
+    height: 779px;
 }
 
 .gpa_info .gpa_info_title {
@@ -269,7 +271,7 @@ body {
     font-weight: bold;
     border-bottom: 1px #ddd solid
 }
-
+//百分制算法说明
 .gpa_info .gpa_info_hundred {
     line-height: 25px
 }
@@ -305,7 +307,6 @@ body {
     display: inline-block;
     text-align: center;
     border-right: 1px #ddd solid;
-    height: 601px;
 }
 
 .gpa_info .gpa_info_hundred .gpa_info_list1 span:last-child {
@@ -324,7 +325,74 @@ body {
     background-color: #f7f7f7;
     text-align: center
 }
-
+//五分制算法说明
+.gpa_info .gpa_info_five {
+    line-height: 25px
+}
+.gpa_info .gpa_info_five span {
+    padding: 0 15px;
+    margin-top: 15px;
+    font-size: 12px;
+    width: 156px;
+    float: left;
+    display: inline-block;
+    text-align: center;
+    border-right: 1px #ddd solid;
+}
+.gpa_info .gpa_info_five span:last-child {
+    border: 0px
+}
+.gpa_info .gpa_info_five span table {
+    width: 156px
+}
+.gpa_info .gpa_info_five span table tr {
+    height: 25px
+}
+.gpa_info .gpa_info_five span table th {
+    background-color: #f7f7f7;
+    text-align: center
+}
+//等级制算法说明
+.gpa_info .gpa_info_rank {
+    line-height: 25px
+}
+.gpa_info .gpa_info_rank span {
+    padding: 0 15px;
+    margin-top: 15px;
+    font-size: 12px;
+    width: 156px;
+    float: left;
+    display: inline-block;
+    text-align: center;
+    border-right: 1px #ddd solid;
+}
+.gpa_info .gpa_info_rank span:last-child {
+    border: 0px
+}
+.gpa_info .gpa_info_rank span table {
+    width: 156px
+}
+.gpa_info .gpa_info_rank span table tr {
+    height: 25px
+}
+.gpa_info .gpa_info_rank span table th {
+    background-color: #f7f7f7;
+    text-align: center
+}
+//自定义算法说明
+.gpa_info .gpa_info_custom{
+    line-height: 25px;
+}
+.gpa_info .gpa_info_custom span {
+    padding: 0 15px;
+    margin-top: 15px;
+    font-size: 12px;
+    width: 156px;
+    float: left;
+    display: inline-block;
+    text-align: center;
+//border-right: 1px #ddd solid;
+}
 .gpa_mask {
     display: none;
     position: fixed;
