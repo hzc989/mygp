@@ -22,11 +22,11 @@ $(document).ready(function() {
             } 
         } 
     });
-	//导出成绩单
-    $('.gpa_export').bind('click', function() {
+	//导入成绩单
+    $('.gpa_import').bind('click', function() {
         $('.gpa_mask').show();
     });
-	//导入成绩单
+	//上传文件
     $('#fileToUpload').click(function() {
         $('.gpa_mask_submit').css('color', '#333');
     });
@@ -57,6 +57,7 @@ $(document).ready(function() {
         });
         return arr;
     };
+    //blur，输入即检查
     $('.gpa_score,.gpa_credit,.gpa_course').blur(function() {
         validate($(this).val(), $(this));
     });
@@ -66,7 +67,7 @@ $(document).ready(function() {
         var reg;
         if (target.hasClass('gpa_score')) {
             var score_type = $('#gpa_score').val();
-            reg = score_type == 'hundred' ? /^([\d]{1,2}|[\d]]+[\.][\d]{1,2}|100|100.0|100.00)$/g : score_type == 'five' ? /^([2-5]{1}|[2-4]+[\.][\d]{1,2}|5.0|5.00)$/g : /[A,A\+,A\-,B,B\+,B\-,C,C\+,C\-,D,D\+,D\-,F]{1,2}$/g;
+            reg = score_type == 'hundred' ? /^([\d]{1,2}|[\d]]+[\.][\d]{1,2}|100|100.0|100.00)$/g : score_type == 'five' ? /^([2-5]{1}|[2-4]+[\.][\d]{1,2}|5.0|5.00)$/g : score_type == 'rank' ? /[A,A\+,A\-,B,B\+,B\-,C,C\+,C\-,D,D\+,D\-,F]{1,2}$/g :/^([\d]{1}|[\d]{1}[\.][\d]{1})$/g;
         } else if (target.hasClass('gpa_credit')) {
             var credit = $.trim(target.val());
             var reg2 = /[\d]$/g;
@@ -86,7 +87,7 @@ $(document).ready(function() {
             //计算器
     var calculate = function(type) {
         var data_arr = getData();
-        var dataObj = [{standardGPA: 0,commonGPA: []}, {standardGPA: 0,commonGPA: 0}, {standardGPA: '--',commonGPA: 0}];
+        var dataObj = [{standardGPA: 0,commonGPA: []}, {standardGPA: 0,commonGPA: 0}, {standardGPA: '--',commonGPA: 0}, { standardGPA: '--', commonGPA: 0} ];
         var standard_num = 0, standard_sum = 0, credit_sum = 0, score = 0, credit = 0;
         $(data_arr).each(function(i) {
             score = parseFloat($(data_arr)[i].score), credit = parseFloat($(data_arr)[i].credit);
@@ -146,14 +147,24 @@ $(document).ready(function() {
             common_num = getnum(common_sum / credit_sum, 2);
             dataObj[2].commonGPA = common_num || 0;
         }
+        //添加“自定义”的计算器实现
+        else if (type === "custom") {
+            var common_num = 0, common_sum = 0;
+                $(data_arr).each(function(j) {
+                    var point = $(data_arr)[j].score, credit = parseFloat($(data_arr)[j].credit);
+                        common_sum += parseFloat(credit * point);
+                });
+            common_num = getnum(common_sum / credit_sum, 2);
+            dataObj[3].commonGPA = common_num || 0;
+        }
         return dataObj;
     }
 	//开始计算
     $('.submit').click(function() { 
         var score_type = $('#gpa_score').val();
         var arith_type = $('.arithmeticType').val();
-        dataObj = calculate(score_type) || [{standardGPA: 0,commonGPA: []}, {standardGPA: 0,commonGPA: 0}, {standardGPA: '--',commonGPA: 0}];
-        var index = score_type == 'hundred' ? 0 : score_type == 'five' ? 1 : score_type == 'rank' ? 2 : 0;
+        dataObj = calculate(score_type) || [{standardGPA: 0,commonGPA: []}, {standardGPA: 0,commonGPA: 0}, {standardGPA: '--',commonGPA: 0}, {standardGPA: '--',commonGPA: 0}];
+        var index = score_type == 'hundred' ? 0 : score_type == 'five' ? 1 : score_type == 'rank' ? 2 : 3;
         $('#showGPA1').html(dataObj[index].standardGPA);
         var commonGPA = dataObj[index].commonGPA || 0;
         if (typeof commonGPA == 'object') {
@@ -242,10 +253,11 @@ $(document).ready(function() {
                 return;
             }});
     });
+    //导出成绩单excel文件
     $('.exports').click(function() {
         var standard_num = $('#showGPA1').html();
         var common_num = $('#showGPA2').html();
-        var scoreType = $('#gpa_score option[value="' + $('.scoreType').val() + '"]').text();
+        var scoreType = $('#gpa_score').val();//$('#gpa_score option[value="' + $('.scoreType').val() + '"]').text();
         var arithmeticType = $('.arithmeticType option[value="' + $('.arithmeticType').val() + '"]').attr('name');
         var data_arr = getData();
         var printStr = "";
@@ -255,7 +267,10 @@ $(document).ready(function() {
                 var name = itemObj.name, score = itemObj.score, credit = itemObj.credit;
                 printStr += name + "," + score + "," + credit + ((i != $(data_arr).size() - 1) ? "|" : "");
             });
-            var url = "export.php?export=1standard_num=" + encodeURIComponent(standard_num) + "&common_num=" + encodeURIComponent(common_num) + "&scoreType=" + encodeURIComponent(scoreType) + "&arithmeticType=" + encodeURIComponent(arithmeticType) + "&printStr=" + encodeURIComponent(printStr);
+            var url = "export.php?standard_num=" + encodeURIComponent(standard_num) 
+                    + "&common_num=" + encodeURIComponent(common_num) + "&scoreType="  + encodeURIComponent(scoreType) 
+                    + "&arithmeticType=" + encodeURIComponent(arithmeticType) 
+                    + "&printStr=" + encodeURIComponent(printStr);
             window.location.href = url;
         } else {
             $.popup.show({message: '你还没有输入任何成绩哦~！',timeout: 2000,type: "warning"});

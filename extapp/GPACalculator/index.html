@@ -17,14 +17,14 @@
 <div class="wrapper">
     <ul class="wrapper_top">
 	<li>在美国申请大学，评估申请者背景条件的一个重要指标是申请者的GPA，它是Grade Point Average（平均绩点）的缩写，它通常是反应申请者学习能力的指标。</li>
-	<li>GPA的计算：一般是将每门课程之学分乘以学时，加起来再除以总学时，即GPA=Σmn/Σn</li>
-	<li>使用本GPA计算器，您只需要输入所学课程的成绩及该课程所得学分，选择不同的成绩制度与算分，即可轻松获得您的GPA成绩。</li>
-	<li>其中，右侧显示不同制之换算算法，“标准算法GPA”栏中显示标准4.0算法之结果，“常见算法GPA栏”中将显示按照您所选择的百分制算法计算所得结果。</li>
+	<li>GPA的计算：标准算法是GPA=Σ(课程百分制成绩*课程学分)*4 / [Σ(课程学分)*100]，其他常见算法(如下方右侧列举8种，未列举请选择自定义算法)一般是GPA=Σ(课程绩点*课程学分)/Σ课程学分</li>
+	<li>使用本GPA计算器，您只需要输入所学课程的成绩及该课程所得学分，选择不同的成绩制度与算法，即可轻松获得您的GPA成绩。</li>
+	<li>其中，右侧显示不同制之换算算法，左侧下“标准算法GPA”栏中显示标准4.0算法之结果，“常见算法GPA栏”中将显示按照您所选择的百分制算法计算所得结果。</li>
     </ul>
 </div>    
 <div class="wrapper clearfix">
 	<div class="wrapper_gpa">
-	    <div class="wrapper_gpa_title clearfix">GPA计算器<span class="gpa_export">导入成绩单</span></div>
+	    <div class="wrapper_gpa_title clearfix">GPA计算器<span class="gpa_import">导入成绩单</span></div>
 	    <div class="gpa_form">
 		<div class="gpa_list">
 		    <span class="gpa_course">课程名称</span>
@@ -99,7 +99,7 @@
 				<option value="Canada_43" name="北大4.0算法">加拿大4.3算法</option>
 				<option value="USTC_43" name="中科大4.3算法">中科大4.3算法</option>
 				<option value="SJTU_43" name="上海交大4.3算法">上海交大4.3算法</option>
-                                <option value="GDUFS_4" name="上海交大4.3算法">广外大4.0算法</option>
+                                <option value="GDUFS_4" name="广外大4.0算法">广外大4.0算法</option>
 			    </select>
 			</span>
 			<span id="showGPA1">0</span>
@@ -297,7 +297,7 @@
                         <div class="gpa_info_custom intro_item" style="display: none;">
                 <div class="gpa_info_title">自定义算法说明</div>
              <span>
-               这个是自定义算法。
+               自定义算法用于没有列出的其他大学的换算算法：请按照您学校的换算算法把课程绩点填入成绩一列，即可得按GPA=Σ(课程绩点*课程学分)/Σ课程学分计算之结果，显示在常见GPA一栏。
              </span>
             </div>
 	</div>
