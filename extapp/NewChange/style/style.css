@@ -1,0 +1,76 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+    margin:0px;
+    padding:0px;
+}
+#header{
+    width:900px;
+    height:230px;
+    background-image:url(image/backgroung.png);
+    margin:0 auto;
+	}
+#search_tab{
+	position:relative;
+	left:550px;
+	top:180px;
+}
+
+#middle{
+	width:880px;
+	margin:0 auto;
+	padding:20px 10px;
+	min-height:400px;
+}
+#middle_left{
+	width:210px;
+	float:left;
+}
+#middle_right{
+	width:650px;
+	float:right;
+}
+#admin_mid_left{
+	width:110px;
+	float:left;
+}
+#admin_mid_right{
+	width:750px;
+	float:right;
+}
+#footer{
+	width:900px;
+	margin:0 auto;
+	border-top:dashed 1px #0088CC;
+	text-align:center;
+}
+
+
+.font_style1{/*文字样式*/
+	color:#0088CC;
+}
+.font_style2{
+	color:#F00;
+}
+.font_style3{
+	color:#F33;
+}
+.border1{
+    border-bottom:dashed 1px #999;	
+}
+.dialog_style1{
+	width:530px; 
+	margin:20px auto;
+}
+.pre_style1{
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	background:none;
+}
+.well_style1{
+	width:400px; 
+	margin:10px auto;
+}
+.clear{
+	clear:both;
+}
