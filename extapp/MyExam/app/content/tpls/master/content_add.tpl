@@ -38,18 +38,7 @@
 		            <label for="block" class="control-label">标题加粗：</label>
 		            <input type="text" name="args[contenttitle]" needle="needle" msg="您必须输入标题">
 		        </div>
-		        -->
-		        <div class="control-group">
-		            <label for="contentmoduleid" class="control-label">模型：</label>
-		            <div class="controls">
-					    <select id="contentmoduleid" msg="您必须选择信息模型" refreshjs="on" needle="needle" class="combox" name="args[contentmoduleid]" refUrl="index.php?content-master-module-moduleforms&moduleid={value}" target="contentforms">
-			            	<option value="">选择信息模型</option>
-			            	{x2;tree:$modules,module,mid}
-			            	<option value="{x2;v:module['moduleid']}">{x2;v:module['modulename']}</option>
-			            	{x2;endtree}
-			            </select>
-			        </div>
-		        </div>
+		        -->		      
 		        <div class="control-group">
 		            <label for="block" class="control-label">缩略图：</label>
 		            <div class="controls">
@@ -74,12 +63,6 @@
 			        </div>
 		        </div>
 		        <div class="control-group">
-		            <label for="contentlink" class="control-label">站外链接：</label>
-		            <div class="controls">
-					    <input type="text" id="contentlink" name="args[contentlink]">
-			        </div>
-		        </div>
-		        <div class="control-group">
 		            <label for="contentdescribe" class="control-label">摘要：</label>
 		            <div class="controls">
 					    <textarea id="contentdescribe" class="input-xxlarge" name="args[contentdescribe]" rows="7" cols="4"></textarea>
@@ -101,19 +84,7 @@
 			            	{x2;endtree}
 			            </select>
 			        </div>
-		        </div>
-		        {x2;if:$poses}
-		        <div class="control-group">
-		            <label class="control-label">推荐到：</label>
-	            	<div class="controls">
-					    {x2;tree:$poses,pos,pid}
-		            	<label class="checkbox inline">
-		            		<input type="checkbox" value="{x2;v:pos['posid']}" name="position[]">{x2;v:pos['posname']}
-		            	</label>
-		            	{x2;endtree}
-			        </div>
-		        </div>
-		        {x2;endif}
+		        </div>		       
 		        <div class="control-group">
 		            <div class="controls">
 			            <button class="btn btn-primary" type="submit">提交</button>

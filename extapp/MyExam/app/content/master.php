@@ -572,26 +572,15 @@ class app
 		switch($action)
 		{
 			case 'add':
-			if($this->ev->get('submit'))
+			if($this->ev->get('submit'))//处理表单的提交
 			{
 				$args = $this->ev->get('args');
 				$args['contentuserid'] = $this->_user['sessionuserid'];
 				$args['contentusername'] = $this->_user['sessionusername'];
 				$args['contentinputtime'] = TIME;
 				$group = $this->user->getGroupById($this->_user['sessiongroupid']);
-				$args = $this->module->tidyNeedFieldsPars($args,$args['contentmoduleid'],array('group' => $group));
+				//$args = $this->module->tidyNeedFieldsPars($args,$args['contentmoduleid'],array('group' => $group));
 				$id = $this->content->addContent($args);
-				/**
-				$position = $this->ev->get('position');
-				if($position)
-				{
-					foreach($position as $p)
-					{
-						$args = array('pctitle' => $basicargs['contenttitle'],'pctime' => TIME,'pccontentid' => $id,'pcthumb' => $basicargs['contentthumb'],'pcposid' => $p);
-						$this->position->addPosContent($args);
-					}
-				}
-				**/
 				$message = array(
 					'statusCode' => 200,
 					"message" => "操作成功",
@@ -602,7 +591,7 @@ class app
 				);
 				exit(json_encode($message));
 			}
-			else
+			else//呈现添加内容页面content_add.tpl
 			{
 				$catid = intval($this->ev->get('catid'));
 				$parentcat = $this->category->getCategoriesByArgs("catparent = 0");

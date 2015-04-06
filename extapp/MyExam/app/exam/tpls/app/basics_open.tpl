@@ -29,15 +29,6 @@
 			            </thead>
 						<tr>
 							<td>
-								是否免费：
-							</td>
-							<td>
-								<select name="search[basicdemo]" class="input-medium">
-									<option value="0">不限</option>
-									<option value="1"{x2;if:$search['basicdemo']} selected{x2;endif}>免费</option>
-								</select>
-							</td>
-							<td>
 								关键字：
 							</td>
 							<td>
@@ -82,7 +73,7 @@
 						{x2;tree:$basics['data'],basic,bid}
 						<li class="span2">
 							<div class="thumbnail">
-								<a class="thumbnail" href="index.php?exam-app-basics-detail&basicid={x2;v:basic['basicid']}" title="{x2;v:basic['basic']}"><img alt="300x200" src="{x2;if:v:basic['basicthumb']}{x2;v:basic['basicthumb']}{x2;else}app/exam/styles/image/paper.png{x2;endif}" style="width:160px;"/></a>
+								<a class="thumbnail" href="index.php?exam-app-basics-detail&basicid={x2;v:basic['basicid']}" title="{x2;v:basic['basic']}"><img alt="300x200" src="{x2;if:v:basic['basicthumb']}{x2;v:basic['basicthumb']}{x2;else}app/exam/styles/image/paper.png{x2;endif}" style="width:160px;height: 169px;"/></a>
 								<div class="caption">
 									<div class="text-center">
 										<h6>{x2;substring:v:basic['basic'],28}</h6>

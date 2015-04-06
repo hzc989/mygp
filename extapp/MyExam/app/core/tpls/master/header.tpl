@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="title" content="在线模考评测">
-<meta name="description" content="在线模考评测">
-<meta name="keywords" content="在线模考评测">
+<meta name="title" content="在线模考">
+<meta name="description" content="在线模考">
+<meta name="keywords" content="在线模考">
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <title>模考评测online Beta</title>
 <!–[if lt IE9]>

@@ -3,11 +3,11 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="title" content="模考评测">
-<meta name="description" content="模考评测">
-<meta name="keywords" content="模考评测">
+<meta name="title" content="挑战100模考系统">
+<meta name="description" content="挑战100模考系统">
+<meta name="keywords" content="挑战100模考系统">
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<title>模考评测online Beta</title>
+<title>挑战100模考系统online Beta</title>
 <link href="app/core/styles/css/bootstrap.css" rel="stylesheet">
 <link href="app/core/styles/css/plugin.css" rel="stylesheet">
 <link href="app/user/styles/css/theme.css" rel="stylesheet" type="text/css" />

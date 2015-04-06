@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="title" content="模考评测">
-<meta name="description" content="模考评测">
-<meta name="keywords" content="模考评测">
+<meta name="title" content="挑战100模考系统">
+<meta name="description" content="挑战100模考系统">
+<meta name="keywords" content="挑战100模考系统">
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<title>模考评测online Beta</title>
+<title>挑战100模考系统online Beta</title>
 <!–[if lt IE9]>
 <script src="app/core/styles/js/html5.js"></script>
 <![endif]–>

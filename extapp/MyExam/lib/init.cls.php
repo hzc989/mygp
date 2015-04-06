@@ -118,7 +118,7 @@ class ginkgo
 			if(isset($lang))$this->lang[$this->app] = $lang;
 		}
 	}
-
+        //POPUP信息处理
 	public function R($message)
 	{
 		$ev = $this->make('ev');

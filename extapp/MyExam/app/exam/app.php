@@ -17,6 +17,7 @@ class app
 		$this->html = $this->G->make('html');
 		$this->session = $this->G->make('session');
 		$this->_user = $this->session->getSessionUser();
+                $this->content = $this->G->make('content','content');
 		if(!$this->_user['sessionuserid'])
 		{
 			if($this->ev->get('userhash'))
@@ -485,6 +486,10 @@ class app
 
 			default:
 			$this->tpl->assign('basics',$this->data['openbasics']);
+                        //获取首页图片等内容
+                        $contents=array();
+                        $contents=$this->content->getContentById(6);
+                        $this->tpl->assign('contents',$contents);
 			$this->tpl->display('index');
 			break;
 		}
